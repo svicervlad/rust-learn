@@ -31,5 +31,5 @@ services:
       POSTGRES_PASSWORD: dev
 
 
-volume:
+volumes:
   db-data: null
