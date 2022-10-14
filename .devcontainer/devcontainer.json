@@ -30,7 +30,7 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": ["db:5432", 8080],
+	"forwardPorts": ["db:5432", 8080, 9000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "rustup target add wasm32-unknown-unknown && cargo install trunk && cargo install wasm-bindgen-cli",
