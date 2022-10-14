@@ -8,13 +8,14 @@ services:
       args: 
         VARIANT: bullseye
 
+    ports:
+      - 9000:9000
+
     volumes:
       - ..:/workspace:cached
 
     command: sleep infinity
 
-    network_mode: service:db
-    
     user: vscode
 
     cap_add:
