@@ -1,4 +1,4 @@
-FROM rust:1-alpine as builder
+FROM rust:1-bullseye as builder
 WORKDIR /usr/src/app
 
 RUN rustup target add wasm32-unknown-unknown && cargo install trunk && cargo install wasm-bindgen-cli
