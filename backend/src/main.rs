@@ -1,5 +1,5 @@
 #[macro_use] extern crate rocket;
-use rocket::fs::{FileServer, relative};
+use rocket::fs::FileServer;
 
 #[get("/<name>", rank = 2)]
 fn index(name: &str) -> String {
@@ -9,6 +9,6 @@ fn index(name: &str) -> String {
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-    .mount("/", FileServer::from(relative!("../dist")).rank(1))
+    .mount("/", FileServer::from("dist").rank(1))
     .mount("/", routes![index])
 }
