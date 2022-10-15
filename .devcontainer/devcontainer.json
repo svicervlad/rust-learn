@@ -33,7 +33,7 @@
 	"forwardPorts": ["db:5432", 8080, 9000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "rustup target add wasm32-unknown-unknown && cargo install trunk && cargo install wasm-bindgen-cli",
+	"postCreateCommand": "sudo chown -R vscode:rustlang /usr/local/cargo/registry",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
