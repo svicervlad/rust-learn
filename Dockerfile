@@ -15,5 +15,4 @@ COPY --from=builder /usr/src/app/dist /usr/src/app/dist
 ENV ROCKET_LOG_LEVEL=normal
 ENV ROCKET_ADDRESS=0.0.0.0
 ENV ROCKET_PORT=8000
-EXPOSE 8000
 CMD ["./backend"]
