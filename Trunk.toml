@@ -12,7 +12,7 @@ filehash = true
 
 [watch]
 # Paths to watch. The `build.target`'s parent folder is watched by default.
-watch = ['frontend', 'backend']
+watch = ['frontend']
 # Paths to ignore.
 ignore = []
 
