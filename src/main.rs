@@ -1,4 +1,4 @@
-use std::env::{args};
+use std::env::args;
 
 mod calculator;
 use calculator::{Calculator, OperationError};
@@ -16,6 +16,6 @@ fn main() {
     let result: Result<f32, OperationError> = calculator.operate();
     match result {
         Ok(value) => println!("result: {} = {}", calculator, value),
-        Err(error) => println!("Error: {:?}", error)
+        Err(error) => println!("Error: {:?}", error),
     }
 }

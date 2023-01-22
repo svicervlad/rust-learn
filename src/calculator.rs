@@ -3,29 +3,42 @@ use std::env::{args, Args};
 #[derive(Debug)]
 pub enum OperationError {
     DivisionByZero,
-    UnknownOperation
+    UnknownOperation,
 }
 
 pub struct Calculator {
     first: f32,
     second: f32,
-    option: String
+    option: String,
 }
 
 impl Calculator {
     #[allow(dead_code)]
     pub fn new(first: f32, second: f32, option: String) -> Self {
-        Self { first, second, option }
+        Self {
+            first,
+            second,
+            option,
+        }
     }
     pub fn new_from_args() -> Self {
         let mut args: Args = args();
         let first_sting: String = args.nth(1).unwrap_or_default();
-        let option: String = args.next()
-          .unwrap_or_default().chars().next().unwrap_or_default().to_string();
+        let option: String = args
+            .next()
+            .unwrap_or_default()
+            .chars()
+            .next()
+            .unwrap_or_default()
+            .to_string();
         let second_string: String = args.next().unwrap_or_default();
         let first: f32 = first_sting.parse().unwrap_or_default();
         let second: f32 = second_string.parse().unwrap_or_default();
-        Self { first, second, option }
+        Self {
+            first,
+            second,
+            option,
+        }
     }
     pub fn operate(&self) -> Result<f32, OperationError> {
         let first: f32 = self.first;
@@ -35,9 +48,9 @@ impl Calculator {
             "+" => Ok(first + second),
             "-" => Ok(first - second),
             "*" | "x" | "X" => Ok(first * second),
-            "/"  if second == 0.0 => Err(OperationError::DivisionByZero),
+            "/" if second == 0.0 => Err(OperationError::DivisionByZero),
             "/" => Ok(first / second),
-            _ => Err(OperationError::UnknownOperation)
+            _ => Err(OperationError::UnknownOperation),
         }
     }
 }
@@ -94,5 +107,4 @@ mod tests {
         let result = calculator.operate();
         assert!(matches!(result, Err(OperationError::UnknownOperation)));
     }
-
 }
