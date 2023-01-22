@@ -1,0 +1,16 @@
+[package]
+name = "calculator"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# Optimized release profile (used for `cargo build --release`).
+[profile.release]
+opt-level = 3
+lto = true
+debug = false
+debug-assertions = false
+overflow-checks = true
+
+[dependencies]
