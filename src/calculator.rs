@@ -22,18 +22,18 @@ impl Calculator {
         }
     }
     pub fn new_from_args() -> Self {
-        let mut args: Args = args();
-        let first_sting: String = args.nth(1).unwrap_or_default();
-        let option: String = args
+        let mut args = args();
+        let first_sting = args.nth(1).unwrap_or_default();
+        let option = args
             .next()
             .unwrap_or_default()
             .chars()
             .next()
             .unwrap_or_default()
             .to_string();
-        let second_string: String = args.next().unwrap_or_default();
-        let first: f32 = first_sting.parse().unwrap_or_default();
-        let second: f32 = second_string.parse().unwrap_or_default();
+        let second_string = args.next().unwrap_or_default();
+        let first = first_sting.parse().unwrap_or_default();
+        let second = second_string.parse().unwrap_or_default();
         Self {
             first,
             second,
@@ -41,9 +41,9 @@ impl Calculator {
         }
     }
     pub fn operate(&self) -> Result<f32, OperationError> {
-        let first: f32 = self.first;
-        let second: f32 = self.second;
-        let option: &str = self.option.as_str();
+        let first = self.first;
+        let second = self.second;
+        let option = self.option.as_str();
         match option {
             "+" => Ok(first + second),
             "-" => Ok(first - second),
