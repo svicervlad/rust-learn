@@ -35,11 +35,8 @@ impl Calculator {
             "+" => Ok(first + second),
             "-" => Ok(first - second),
             "*" | "x" | "X" => Ok(first * second),
-            "/" => if second == 0.0 {
-                Err(OperationError::DivisionByZero)
-            } else {
-                Ok(first / second)
-            },
+            "/"  if second == 0.0 => Err(OperationError::DivisionByZero),
+            "/" => Ok(first / second),
             _ => Err(OperationError::UnknownOperation)
         }
     }
